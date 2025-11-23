@@ -14,12 +14,16 @@ on:
 
 jobs:
   find-molecule:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       matrix: ${{ env.matrix_output }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Set env
+        run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+        #with:
+        #  ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Get changed roles
         id: changed-roles
@@ -58,7 +62,7 @@ jobs:
           exit 0
 
   molecule:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs:
       - find-molecule
     strategy:
@@ -76,11 +80,13 @@ jobs:
           docker-images: true
           swap-storage: true
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      #- name: Checkout
+      #  uses: actions/checkout@v2
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@v4

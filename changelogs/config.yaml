@@ -27,6 +27,6 @@ sections:
     - Bugfixes
   - - known_issues
     - Known Issues
-title: diademiemi.jetbrains
+title: hauptj.jetbrains
 trivial_section_name: trivial
 use_fqcn: true

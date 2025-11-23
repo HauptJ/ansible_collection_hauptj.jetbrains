@@ -9,13 +9,13 @@ name: CI
     branches:
       - main
     paths:
-      - "roles/android_studio/**"
+      - "roles/goland/**"
   workflow_dispatch:
 
 jobs:
   molecule:
-    runs-on: ubuntu-20.04
-    name: Molecule test "android_studio" role
+    runs-on: ubuntu-22.04
+    name: Molecule test "goland" role
     strategy:
       fail-fast: false
     steps:
@@ -33,18 +33,18 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies.
-        working-directory: roles/android_studio
+        working-directory: roles/goland
         run: pip3 install -r requirements.txt
 
       - name: Install Ansible dependencies.
         run: ansible-galaxy install -r requirements.yml
 
       - name: Install Ansible dependencies specific to role.
-        working-directory: roles/android_studio
+        working-directory: roles/goland
         run: ansible-galaxy install -r requirements.yml
 
       - name: Run molecule
-        working-directory: roles/android_studio
+        working-directory: roles/goland
         run: "molecule test"
 
 ...

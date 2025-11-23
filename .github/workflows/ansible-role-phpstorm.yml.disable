@@ -9,13 +9,13 @@ name: CI
     branches:
       - main
     paths:
-      - "roles/clion/**"
+      - "roles/phpstorm/**"
   workflow_dispatch:
 
 jobs:
   molecule:
-    runs-on: ubuntu-20.04
-    name: Molecule test "clion" role
+    runs-on: ubuntu-22.04
+    name: Molecule test "phpstorm" role
     strategy:
       fail-fast: false
     steps:
@@ -33,18 +33,18 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies.
-        working-directory: roles/clion
+        working-directory: roles/phpstorm
         run: pip3 install -r requirements.txt
 
       - name: Install Ansible dependencies.
         run: ansible-galaxy install -r requirements.yml
 
       - name: Install Ansible dependencies specific to role.
-        working-directory: roles/clion
+        working-directory: roles/phpstorm
         run: ansible-galaxy install -r requirements.yml
 
       - name: Run molecule
-        working-directory: roles/clion
+        working-directory: roles/phpstorm
         run: "molecule test"
 
 ...
