@@ -14,7 +14,7 @@ name: CI
 
 jobs:
   molecule:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     name: Molecule test "pycharm" role
     strategy:
       fail-fast: false
