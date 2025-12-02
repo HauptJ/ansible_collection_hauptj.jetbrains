@@ -1,7 +1,7 @@
 ---
 - name: Include common role
   ansible.builtin.include_role:
-    name: diademiemi.jetbrains.common
+    name: hauptj.jetbrains.common
     tasks_from: main.yml
   vars:
     jetbrains_common_name: "{{ jetbrains_clion_name }}"

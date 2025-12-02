@@ -44,3 +44,4 @@ Author Information
 ------------------
 
 - diademiemi (@diademiemi)
+- hauptj (@hauptj)
