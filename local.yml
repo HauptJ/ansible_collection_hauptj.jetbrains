@@ -1,0 +1,8 @@
+---
+- name: Install locally
+  hosts: "{{ target | default('localhost') }}"
+  gather_facts: true
+  become: true
+
+  roles:
+    - role: hauptj.jetbrains.goland
