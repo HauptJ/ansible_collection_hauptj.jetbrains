@@ -1,7 +1,7 @@
 galaxy_info:
-  author: diademiemi
-  namespace: diademiemi
-  company: diademiemi
+  author: hauptj
+  namespace: hauptj
+  company: hauptj
   description: Ansible role to install and configure idea
   role_name: idea
 
